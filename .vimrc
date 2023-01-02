@@ -52,6 +52,30 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'tomasiser/vim-code-dark'
+Plugin 'airblade/vim-gitgutter'
+"install code-minimap
+"curl https://sh.rustup.rs -sSf | sh
+"cargo install --locked code-minimap
+Plugin 'wfxr/minimap.vim' 
 
 call vundle#end()
 filetype plugin indent on
+
+set updatetime=500
+
+hi GitGutterAdd     guifg=#009900 ctermfg=2
+hi GitGutterChange  guifg=#bbbb00 ctermfg=3
+hi GitGutterDelete  guifg=#ff2222 ctermfg=1
+
+hi MinimapCustCursor ctermbg=59 guibg=#FFFFFF guifg=#FFFFFF
+hi MinimapCustDiffAdd ctermfg=Green guibg=#32302F guifg=#50FA7B
+hi MinimapCustCursorDiffAdd ctermbg=59 ctermfg=Green
+hi MinimapCustDiff ctermfg=228 guibg=#32302F guifg=#50FA7B
+
+let g:minimap_git_colors = 1
+let g:minimap_highlight_range = 0
+let g:minimap_cursor_color = 'MinimapCustCursor'
+let g:minimap_diffadd_color = 'MinimapCustDiffAdd'
+let g:minimap_cursor_diffadd_color = 'MinimapCustCursorDiffAdd'
+let g:minimap_diff_color = 'MinimapCustDiff'
+let g:minimap_cursor_diff_color = 'minimapCursor'
