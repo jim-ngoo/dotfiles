@@ -1,0 +1,27 @@
+[user]
+	name = jim
+	email = jim@email
+
+[alias]
+	st = status -sb
+	pfa = !bash -c 'git remote | xargs -n 1 -P 0 git fetch -p'
+	co = checkout
+	br = branch
+	rbi = rebase --autosquash --rebase-merges --interactive
+	lg = log --graph --pretty=tformat:'%C(yellow)%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ai)%Creset'
+	amend = commit --amend --no-edit
+	
+[http]
+	# proxyAuthMethod = basic
+	
+[push]
+	default = simple
+	
+[diff]
+	tool = vimdiff
+	
+[difftool]
+	prompt = false
+	
+[core]
+	editor = vim
