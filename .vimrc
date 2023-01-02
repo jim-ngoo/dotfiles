@@ -44,3 +44,14 @@ endfunction
 
 command! -range GitCopyUrl <line1>,<line2>call GitCopyUrlRange()
 vmap <C-c> :GitCopyUrl<CR>
+
+"run: git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'tomasiser/vim-code-dark'
+
+call vundle#end()
+filetype plugin indent on
