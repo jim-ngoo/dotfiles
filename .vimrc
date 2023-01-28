@@ -9,8 +9,9 @@ set visualbell
 set hlsearch
 set ignorecase
 set autochdir
-set statusline+=%F
+set statusline=%F\ %h%w%m%r\ %=%(%l,%c%V\ %=\ %P%)
 set relativenumber
+set tags=tags;/
 set t_Co=256
 set t_ut=
 set splitbelow
@@ -45,20 +46,34 @@ endfunction
 command! -range GitCopyUrl <line1>,<line2>call GitCopyUrlRange()
 vmap <C-c> :GitCopyUrl<CR>
 
-"run: git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin()
+" The default plugin directory will be as follows:
+"   - Vim (Linux/macOS): '~/.vim/plugged'
+"   - Vim (Windows): '~/vimfiles/plugged'
+"   - Neovim (Linux/macOS/Windows): stdpath('data') . '/plugged'
+" You can specify a custom plugin directory by passing it as the argument
+"   - e.g. `call plug#begin('~/.vim/plugged')`
+"   - Avoid using standard Vim directory names like 'plugin'
 
-Plugin 'VundleVim/Vundle.vim'
+" Make sure you use single quotes
 
-Plugin 'tomasiser/vim-code-dark'
-Plugin 'airblade/vim-gitgutter'
+" Plugin outside ~/.vim/plugged with post-update hook
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'tomasiser/vim-code-dark'
+Plug 'airblade/vim-gitgutter'
 "install code-minimap
 "curl https://sh.rustup.rs -sSf | sh
 "cargo install --locked code-minimap
-Plugin 'wfxr/minimap.vim' 
+Plug 'wfxr/minimap.vim' 
 
-call vundle#end()
+" Initialize plugin system
+" - Automatically executes `filetype plugin indent on` and `syntax enable`.
+call plug#end()
+" You can revert the settings after the call like so:
+"   filetype indent off   " Disable file-type-specific indentation
+"   syntax off            " Disable syntax highlighting
+
 filetype plugin indent on
 
 set updatetime=500
