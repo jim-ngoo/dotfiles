@@ -1,2 +1,2 @@
 # Set up symlink with .vimrc
-`ln -rsf $PWD/.vimrc ~/.vimrc`
+`ln -sf $PWD/.vimrc ~/.vimrc`
